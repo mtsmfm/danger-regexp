@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "git_diff_parser", "~> 3.1"
+  spec.add_dependency "danger"
 
   spec.add_development_dependency "bundler", ">= 2.2.10"
   spec.add_development_dependency "rake", ">= 12.3.3"

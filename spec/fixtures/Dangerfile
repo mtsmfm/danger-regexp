@@ -1,0 +1,5 @@
+regexp.lint do
+  match(/li/, <<~MESSAGE)
+    li
+  MESSAGE
+end
