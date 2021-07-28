@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    danger-regexp (0.1.0)
+    danger-regexp (1.0.0)
       danger
       git_diff_parser (~> 3.1)
 

@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Fumiaki MATSUSHIMA"]
   spec.email         = ["mtsmfm@gmail.com"]
 
-  spec.summary       = %q{}
-  spec.description   = %q{}
+  spec.summary       = %q{A danger plugin to add a comment based on regexp}
+  spec.description   = %q{A danger plugin to add a comment based on regexp}
   spec.homepage      = "https://github.com/mtsmfm/danger-regexp"
   spec.license       = "MIT"
 
