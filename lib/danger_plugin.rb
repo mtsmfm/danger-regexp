@@ -2,18 +2,30 @@ require 'git_diff_parser'
 
 module Danger
   class DangerRegexp < Plugin
+    MAX_COMMENT_COUNT = 5
+
+    ChangedLine = Struct.new(:file, :number, :content, keyword_init: true)
+
     def lint(&block)
       @map = {}
 
       instance_eval(&block)
 
-      git.diff.each do |diff|
-        GitDiffParser::Patch.new(diff.patch).changed_lines.each do |line|
-          @map.each do |regexp, message|
-            if line.content.match?(regexp)
-              markdown(message, file: diff.path, line: line.number)
-            end
-          end
+      @map.each do |regexp, message|
+        count = 0
+
+        target_lines = changed_lines.select do |line|
+          line.content.match?(regexp)
+        end
+
+        target_lines.first(MAX_COMMENT_COUNT).each do |line|
+          markdown(message, file: line.file, line: line.number)
+        end
+
+        if target_lines.size > MAX_COMMENT_COUNT
+          warn <<~MSG
+            Regexp #{regexp.inspect} matched too many lines (#{target_lines.size} lines). Only first #{MAX_COMMENT_COUNT} comments are posted.
+          MSG
         end
       end
     end
@@ -23,6 +35,14 @@ module Danger
     def match(*regexps, message)
       regexps.each do |regexp|
         @map[regexp] = message
+      end
+    end
+
+    def changed_lines
+      @changed_lines ||= git.diff.flat_map do |diff|
+        GitDiffParser::Patch.new(diff.patch).changed_lines.map do |line|
+          ChangedLine.new(file: diff.path, number: line.number, content: line.content)
+        end
       end
     end
   end
