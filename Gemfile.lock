@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    danger-regexp (0.1.0)
+      git_diff_parser (~> 3.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    git_diff_parser (3.2.0)
+    minitest (5.14.4)
+    rake (13.0.6)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  bundler (>= 2.2.10)
+  danger-regexp!
+  minitest (~> 5.0)
+  rake (>= 12.3.3)
+
+BUNDLED WITH
+   2.2.22
