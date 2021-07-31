@@ -6,7 +6,7 @@ RSpec.describe Danger::Regexp do
       Results:
       \e[32m
       \e[33mWarnings:\e[0m
-      - [ ] Regexp /li/ matched too many lines (11 lines). Only first 5 comments are posted.
+      - [ ] Regexp `/li/` matched too many lines (11 lines). Only first 5 comments are posted.
       \e[32m
       Markdown:\e[0m
       .github/workflows/publish.yml#L7

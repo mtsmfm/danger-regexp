@@ -24,7 +24,7 @@ module Danger
 
         if target_lines.size > MAX_COMMENT_COUNT
           warn <<~MSG
-            Regexp #{regexp.inspect} matched too many lines (#{target_lines.size} lines). Only first #{MAX_COMMENT_COUNT} comments are posted.
+            Regexp `#{regexp.inspect}` matched too many lines (#{target_lines.size} lines). Only first #{MAX_COMMENT_COUNT} comments are posted.
           MSG
         end
       end
