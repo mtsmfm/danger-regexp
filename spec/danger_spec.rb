@@ -11,6 +11,8 @@ RSpec.describe Danger::Regexp do
       Markdown:\e[0m
       .github/workflows/publish.yml#L7
       li
+      .github/workflows/publish.yml#L7
+      li on .github
     MESSAGE
   end
 end
