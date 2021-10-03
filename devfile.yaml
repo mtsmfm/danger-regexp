@@ -1,0 +1,18 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: danger-
+projects:
+  - name: danger-regexp
+    source:
+      location: "https://github.com/mtsmfm/danger-regexp.git"
+      type: github
+components:
+  - id: esbenp/prettier-vscode/latest
+    type: chePlugin
+  - mountSources: true
+    memoryLimit: 4Gi
+    type: dockerimage
+    alias: ruby
+    image: "ghcr.io/mtsmfm/devfiles/ruby:3.0"
+  - id: redhat/vscode-yaml/latest
+    type: chePlugin
