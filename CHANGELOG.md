@@ -1,5 +1,10 @@
 # Change log
 
+## 1.1.0
+
+- Post only first comment
+- Add file option
+
 ## 1.0.1
 
 - Escape regexp
