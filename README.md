@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ```ruby
 regexp.lint to
-  match(/hello world/, <<~MESSAGE)
+  match(/hello world/, <<~MESSAGE, file: /README\.md/)
     Don't use hello world, just use hello instead.
   MESSAGE
 end

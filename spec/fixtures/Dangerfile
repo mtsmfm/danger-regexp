@@ -2,4 +2,8 @@ regexp.lint do
   match(/li/, <<~MESSAGE)
     li
   MESSAGE
+
+  match(/li/, <<~MESSAGE, file: /\.github/)
+    li on .github
+  MESSAGE
 end
