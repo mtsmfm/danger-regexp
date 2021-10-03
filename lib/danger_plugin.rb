@@ -2,7 +2,7 @@ require 'git_diff_parser'
 
 module Danger
   class DangerRegexp < Plugin
-    MAX_COMMENT_COUNT = 5
+    MAX_COMMENT_COUNT = 1
 
     ChangedLine = Struct.new(:file, :number, :content, keyword_init: true)
 
@@ -24,7 +24,7 @@ module Danger
 
         if target_lines.size > MAX_COMMENT_COUNT
           warn <<~MSG
-            Regexp `#{regexp.inspect}` matched too many lines (#{target_lines.size} lines). Only first #{MAX_COMMENT_COUNT} comments are posted.
+            Regexp `#{regexp.inspect}` matched too many lines (#{target_lines.size} lines). Only first comment is posted.
           MSG
         end
       end
