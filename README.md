@@ -21,7 +21,7 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-regexp.lint to
+regexp.lint do
   match(/hello world/, <<~MESSAGE, file: /README\.md/)
     Don't use hello world, just use hello instead.
   MESSAGE
